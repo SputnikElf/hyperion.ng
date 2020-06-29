@@ -2,7 +2,7 @@
 
 DOCKER="docker"
 # Git repo url of Hyperion
-GIT_REPO_URL="https://github.com/hyperion-project/hyperion.ng.git"
+GIT_REPO_URL="https://github.com/SputnikElf/hyperion.ng.git"
 # cmake build type
 BUILD_TYPE="Release"
 # the image tag at hyperionproject/hyperion-ci
@@ -101,7 +101,7 @@ $DOCKER run --rm \
 	make -j $(nproc) ${PACKAGES} || exit 3 &&
 	echo '---> Copy binaries and packages to host folder: ${SCRIPT_PATH}/deploy' &&
 	cp -v /hyperion.ng/build/bin/h* /deploy/ 2>/dev/null || : &&
-	cp -v /hyperion.ng/build/Hyperion.NG-* /deploy/ 2>/dev/null || : &&
+	cp -v /hyperion.ng/build/Hyperion* /deploy/ 2>/dev/null || : &&
 	exit 0;
 	exit 1 " || { echo "---> Hyperion compilation failed! Abort"; exit 4; }
 
